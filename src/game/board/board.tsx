@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 // assets
-import 'src/components/board/board.css';
+import 'src/game/board/board.css';
 
 // components
-import Square from 'src/components/square/square';
+import Square from 'src/game/square/square';
 
 export default class Board extends React.Component {
 	public render() {

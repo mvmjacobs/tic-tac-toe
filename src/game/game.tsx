@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 // assets
-import 'src/components/game/game.css';
+import 'src/game/game.css';
 
 // components
-import Board from 'src/components/board/board';
+import Board from 'src/game/board/board';
 
 export default class Game extends React.Component {
 	public render() {

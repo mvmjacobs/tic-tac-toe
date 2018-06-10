@@ -5,7 +5,7 @@ import 'src/app.css';
 import logo from 'src/shared/logo.svg';
 
 // components
-import Game from 'src/components/game/game';
+import Game from 'src/game/game';
 
 export default class App extends React.Component {
 	public render() {

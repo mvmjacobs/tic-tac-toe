@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 // assets
-import 'src/components/square/square.css';
+import 'src/game/square/square.css';
 
 export default class Square extends React.Component<any, any> {
 	constructor(props: any) {
