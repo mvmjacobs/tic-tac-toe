@@ -8,7 +8,7 @@ Below you will find some information on how to perform common tasks.<br>
 Run `npm install` and wait.
 
 ## Development server
-Runs the app in the development mode using `npm start`.<br>
+Run the app in the development mode using `npm start`.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
