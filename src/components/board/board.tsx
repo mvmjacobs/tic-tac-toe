@@ -33,6 +33,6 @@ export default class Board extends React.Component {
 	}
 
 	private renderSquare(i: number) {
-		return <Square />;
+		return <Square value={i}/>;
 	}
 }
