@@ -1,22 +1,25 @@
 import * as React from 'react';
-import './app.css';
 
-import logo from './logo.svg';
+// assets
+import 'src/app.css';
+import logo from 'src/shared/logo.svg';
 
-class App extends React.Component {
+// components
+import Game from 'src/components/game/game';
+
+export default class App extends React.Component {
 	public render() {
 		return (
 			<div className="app">
-				<header className="app-header">
-					<img src={logo} className="app-logo" alt="logo" />
-					<h1 className="app-title">Welcome to React Tic-Tac-Toe</h1>
+				<header className="header">
+					<img src={logo} className="logo" alt="logo" />
+					<h1 className="title">Welcome to React Tic-Tac-Toe Game</h1>
 				</header>
-				<p className="app-intro">
+				<p className="intro">
 					The best game you'll ever play today!
 				</p>
+				<Game />
 			</div>
 		);
 	}
 }
-
-export default App;

@@ -1,13 +1,15 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import './index.css';
+// assets
+import 'src/index.css';
+import registerServiceWorker from 'src/shared/registerServiceWorker';
 
+// components
 import App from 'src/app';
-import registerServiceWorker from 'src/registerServiceWorker';
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root') as HTMLElement
+	<App />,
+	document.getElementById('root') as HTMLElement
 );
 registerServiceWorker();
