@@ -7,6 +7,9 @@ import 'src/game/square/square.css';
 // components
 import Square from 'src/game/square/square';
 
+// helpers
+import calculateWinner from 'src/shared/helpers';
+
 export default class Board extends React.Component<any, any> {
 	constructor(props: any) {
 		super(props);
@@ -17,7 +20,12 @@ export default class Board extends React.Component<any, any> {
 	}
 
 	public render() {
-		const status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
+		const winner = calculateWinner(this.state.squares);
+		let status: string;
+		if (winner)
+			status = `Winner: ${winner}`;
+		else
+			status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
 
 		return (
 			<div>
@@ -47,6 +55,9 @@ export default class Board extends React.Component<any, any> {
 
 	private handleClick(i: number) {
 		const squares = this.state.squares.slice();
+		if (calculateWinner(squares) || squares[i])
+			return;
+
 		squares[i] = this.state.xIsNext ? 'X' : 'O';
 		this.setState({
 			squares,
