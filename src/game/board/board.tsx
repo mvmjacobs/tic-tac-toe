@@ -11,12 +11,13 @@ export default class Board extends React.Component<any, any> {
 	constructor(props: any) {
 		super(props);
 		this.state = {
-			squares: Array(9).fill(null)
+			squares: Array(9).fill(null),
+			xIsNext: true
 		};
 	}
 
 	public render() {
-		const status = 'Next player: X';
+		const status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
 
 		return (
 			<div>
@@ -46,7 +47,10 @@ export default class Board extends React.Component<any, any> {
 
 	private handleClick(i: number) {
 		const squares = this.state.squares.slice();
-		squares[i] = 'X';
-		this.setState({ squares });
+		squares[i] = this.state.xIsNext ? 'X' : 'O';
+		this.setState({
+			squares,
+			xIsNext: !this.state.xIsNext
+		});
 	}
 }
