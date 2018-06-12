@@ -7,9 +7,6 @@ import 'src/game/square/square.css';
 // components
 import Square from 'src/game/square/square';
 
-// helpers
-import calculateWinner from 'src/shared/helpers';
-
 export default class Board extends React.Component<any, any> {
 	constructor(props: any) {
 		super(props);
@@ -20,7 +17,7 @@ export default class Board extends React.Component<any, any> {
 	}
 
 	public render() {
-		const winner = calculateWinner(this.state.squares);
+		const winner = this.calculateWinner(this.state.squares);
 		let status: string;
 		if (winner)
 			status = `Winner: ${winner}`;
@@ -55,7 +52,7 @@ export default class Board extends React.Component<any, any> {
 
 	private handleClick(i: number) {
 		const squares = this.state.squares.slice();
-		if (calculateWinner(squares) || squares[i])
+		if (this.calculateWinner(squares) || squares[i])
 			return;
 
 		squares[i] = this.state.xIsNext ? 'X' : 'O';
@@ -63,5 +60,25 @@ export default class Board extends React.Component<any, any> {
 			squares,
 			xIsNext: !this.state.xIsNext
 		});
+	}
+
+	private calculateWinner(squares: any[]) {
+		const lines = [
+			[0, 1, 2],
+			[3, 4, 5],
+			[6, 7, 8],
+			[0, 3, 6],
+			[1, 4, 7],
+			[2, 5, 8],
+			[0, 4, 8],
+			[2, 4, 6],
+		];
+		for (const line of lines) {
+			const [a, b, c] = line;
+			if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+				return squares[a];
+			}
+		}
+		return null;
 	}
 }
